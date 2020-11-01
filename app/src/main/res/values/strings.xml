@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Search</string>
+    <string name="special_blend">SPECIAL BLEND</string>
+    <string name="match_percent">MATCH %</string>
 </resources>

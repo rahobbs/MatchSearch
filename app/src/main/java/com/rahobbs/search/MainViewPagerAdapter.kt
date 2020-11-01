@@ -11,9 +11,8 @@ class MainViewPagerAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) 
     }
 
     private val tabFragmentsCreators: Map<Int, () -> Fragment> = mapOf(
-        // todo: instantiate specific fragments
-        SPECIAL_BLEND to { Fragment() },
-        MATCH_PERCENT to { Fragment() }
+        SPECIAL_BLEND to { SpecialBlendFragment() },
+        MATCH_PERCENT to { MatchPercentFragment() }
     )
 
 

@@ -22,9 +22,17 @@ class MainViewPagerFragment : Fragment() {
         viewPager.adapter = MainViewPagerAdapter(this)
 
         TabLayoutMediator(tabLayout, viewPager) { tab, position ->
-            tab.text = "TODO"
+            tab.text = getTabTitle(position)
         }.attach()
 
         return binding.root
+    }
+
+    private fun getTabTitle(position: Int): String? {
+        return when (position) {
+            0 -> getString(R.string.special_blend)
+            1 -> getString(R.string.match_percent)
+            else -> null
+        }
     }
 }
