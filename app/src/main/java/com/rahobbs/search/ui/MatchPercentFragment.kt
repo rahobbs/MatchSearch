@@ -24,7 +24,7 @@ class MatchPercentFragment : Fragment() {
         val adapter = PersonCardAdapter()
         binding.matchPercentList.adapter = adapter
 
-        viewModel.matchesList.observe(viewLifecycleOwner, {
+        viewModel.topLikesList.observe(viewLifecycleOwner, {
             adapter.submitList(it)
         })
 
