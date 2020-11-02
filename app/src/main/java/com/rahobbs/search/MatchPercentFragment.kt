@@ -15,6 +15,11 @@ class MatchPercentFragment : Fragment() {
     ): View? {
         val binding = MatchPercentFragmentBinding.inflate(inflater, container, false)
 
+        val adapter = PersonCardAdapter()
+        binding.matchPercentList.adapter = adapter
+
+        adapter.submitList(listOf("Jim", "Bob", "Tom"))
+
         return binding.root
     }
 }

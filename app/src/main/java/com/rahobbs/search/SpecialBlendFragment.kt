@@ -15,6 +15,11 @@ class SpecialBlendFragment : Fragment() {
     ): View? {
         val binding = SpecialBlendFragmentBinding.inflate(inflater, container, false)
 
+        val adapter = PersonCardAdapter()
+        binding.specialBlendList.adapter = adapter
+
+        adapter.submitList(listOf("Jim", "Bob", "Tom"))
+
         return binding.root
     }
 }
