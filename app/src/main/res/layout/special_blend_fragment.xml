@@ -4,7 +4,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/backgroundGray">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/special_blend_list"
@@ -12,8 +13,8 @@
             android:layout_height="match_parent"
             android:clipToPadding="false"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-            tools:listitem="@layout/person_card_view"
-            app:spanCount="2" />
+            app:spanCount="2"
+            tools:listitem="@layout/person_card_view" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
