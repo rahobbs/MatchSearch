@@ -18,7 +18,7 @@ class SpecialBlendFragment : Fragment() {
         val adapter = PersonCardAdapter()
         binding.specialBlendList.adapter = adapter
 
-        adapter.submitList(listOf("Jim", "Bob", "Tom"))
+//        adapter.submitList(listOf("Jim", "Bob", "Tom"))
 
         return binding.root
     }

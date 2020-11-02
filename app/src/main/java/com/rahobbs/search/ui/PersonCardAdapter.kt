@@ -5,9 +5,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.rahobbs.search.data.Match
 import com.rahobbs.search.databinding.PersonCardViewBinding
 
-class PersonCardAdapter : ListAdapter<String, RecyclerView.ViewHolder>(CardDiffCallback()) {
+class PersonCardAdapter : ListAdapter<Match, RecyclerView.ViewHolder>(CardDiffCallback()) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return CardViewHolder(
             PersonCardViewBinding.inflate(
@@ -19,8 +20,8 @@ class PersonCardAdapter : ListAdapter<String, RecyclerView.ViewHolder>(CardDiffC
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        val string = getItem(position)
-        (holder as CardViewHolder).bind(string)
+        val match = getItem(position)
+        (holder as CardViewHolder).bind(match.username)
     }
 
     class CardViewHolder(private val binding: PersonCardViewBinding) :
@@ -31,13 +32,14 @@ class PersonCardAdapter : ListAdapter<String, RecyclerView.ViewHolder>(CardDiffC
         }
     }
 
-    class CardDiffCallback : DiffUtil.ItemCallback<String>() {
+    class CardDiffCallback : DiffUtil.ItemCallback<Match>() {
 
-        override fun areItemsTheSame(oldItem: String, newItem: String): Boolean {
+        override fun areItemsTheSame(oldItem: Match, newItem: Match): Boolean {
+            // TODO: compare on Ids
             return oldItem == newItem
         }
 
-        override fun areContentsTheSame(oldItem: String, newItem: String): Boolean {
+        override fun areContentsTheSame(oldItem: Match, newItem: Match): Boolean {
             return oldItem == newItem
         }
     }
