@@ -1,4 +1,4 @@
-package com.rahobbs.search
+package com.rahobbs.search.ui
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

@@ -1,4 +1,4 @@
-package com.rahobbs.search
+package com.rahobbs.search.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.google.android.material.tabs.TabLayoutMediator
+import com.rahobbs.search.R
 import com.rahobbs.search.databinding.MainViewPagerFragmentBinding
 
 class MainViewPagerFragment : Fragment() {

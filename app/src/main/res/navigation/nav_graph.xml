@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/main_view_pager_fragment"
-        android:name="com.rahobbs.search.MainViewPagerFragment"
+        android:name="com.rahobbs.search.ui.MainViewPagerFragment"
         tools:layout="@layout/main_view_pager_fragment"></fragment>
 
 </navigation>

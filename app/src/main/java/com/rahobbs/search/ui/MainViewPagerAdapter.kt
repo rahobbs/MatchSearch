@@ -1,4 +1,4 @@
-package com.rahobbs.search
+package com.rahobbs.search.ui
 
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
