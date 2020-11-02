@@ -5,9 +5,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import com.rahobbs.search.databinding.SpecialBlendFragmentBinding
 
 class SpecialBlendFragment : Fragment() {
+
+    private val viewModel: MatchPercentViewModel by lazy {
+        ViewModelProvider(this).get(MatchPercentViewModel::class.java)
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -18,7 +24,9 @@ class SpecialBlendFragment : Fragment() {
         val adapter = PersonCardAdapter()
         binding.specialBlendList.adapter = adapter
 
-//        adapter.submitList(listOf("Jim", "Bob", "Tom"))
+        viewModel.matchesList.observe(viewLifecycleOwner, {
+            adapter.submitList(it)
+        })
 
         return binding.root
     }

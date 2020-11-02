@@ -5,6 +5,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.rahobbs.search.R
 import com.rahobbs.search.data.Match
 import com.rahobbs.search.databinding.PersonCardViewBinding
 
@@ -21,14 +23,22 @@ class PersonCardAdapter : ListAdapter<Match, RecyclerView.ViewHolder>(CardDiffCa
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val match = getItem(position)
-        (holder as CardViewHolder).bind(match.username)
+        (holder as CardViewHolder).bind(match)
     }
 
     class CardViewHolder(private val binding: PersonCardViewBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(string: String) {
-            binding.userNameView.text = string
+        fun bind(match: Match) {
+
+            Glide.with(binding.root.context)
+                .load(match.photo.thumbPaths.large)
+                .placeholder(R.drawable.ic_baseline_person_outline_40)
+                .into(binding.profilePicView)
+
+            binding.userNameView.text = match.username
+            binding.ageAndLocation.text = // TODO: format with with a StringUtil
+                "${match.age}-${match.cityName},${match.stateName}"
         }
     }
 
