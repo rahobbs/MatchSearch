@@ -1,6 +1,7 @@
 package com.rahobbs.search.ui
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,7 +22,11 @@ class MatchPercentFragment : Fragment() {
     ): View? {
         val binding = MatchPercentFragmentBinding.inflate(inflater, container, false)
 
-        val adapter = PersonCardAdapter()
+        val adapter = PersonCardAdapter(PersonCardAdapter.OnClickListener {
+            // TODO
+            Log.d("Liked", it.username)
+        })
+
         binding.matchPercentList.adapter = adapter
 
         viewModel.topLikesList.observe(viewLifecycleOwner, {

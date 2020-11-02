@@ -10,7 +10,10 @@ import com.rahobbs.search.R
 import com.rahobbs.search.data.Match
 import com.rahobbs.search.databinding.PersonCardViewBinding
 
-class PersonCardAdapter : ListAdapter<Match, RecyclerView.ViewHolder>(CardDiffCallback()) {
+class PersonCardAdapter(private val clickListener: OnClickListener) :
+    ListAdapter<Match, RecyclerView.ViewHolder>(CardDiffCallback()) {
+
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return CardViewHolder(
             PersonCardViewBinding.inflate(
@@ -23,7 +26,13 @@ class PersonCardAdapter : ListAdapter<Match, RecyclerView.ViewHolder>(CardDiffCa
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val match = getItem(position)
-        (holder as CardViewHolder).bind(match)
+
+        if (match != null) {
+            (holder as CardViewHolder).bind(match)
+            holder.itemView.setOnClickListener {
+                clickListener.onClick(match)
+            }
+        }
     }
 
     class CardViewHolder(private val binding: PersonCardViewBinding) :
@@ -52,5 +61,9 @@ class PersonCardAdapter : ListAdapter<Match, RecyclerView.ViewHolder>(CardDiffCa
         override fun areContentsTheSame(oldItem: Match, newItem: Match): Boolean {
             return oldItem == newItem
         }
+    }
+
+    class OnClickListener(val clickListener: (match: Match) -> Unit) {
+        fun onClick(match: Match) = clickListener(match)
     }
 }
